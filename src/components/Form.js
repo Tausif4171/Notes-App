@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { TextareaAutosize } from "@mui/base";
+import Button from "@mui/material/Button";
 
 export default function Form() {
   return (
@@ -34,6 +34,7 @@ export default function Form() {
             defaultValue="Your message..."
           />
         </div>
+        <Button variant="contained">Add</Button>
       </Box>
       {/* <h3>Description</h3>
       <TextareaAutosize /> */}
