@@ -8,20 +8,35 @@ export default function Form() {
     <div>
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
+          //   display: "flex",
+          //   alignItems: "center",
           "& > :not(style)": { m: 1 },
         }}
         style={{ justifyContent: "center" }}
       >
-        <TextField
-          helperText="Please enter your title"
-          id="demo-helper-text-aligned"
-          label="Title"
-        />
-        <h3>Description</h3>
-        <TextareaAutosize />
+        <div>
+          <TextField
+            id="outlined-multiline-static"
+            label="Title"
+            multiline
+            rows={1}
+            defaultValue="Your title..."
+          />
+        </div>
+
+        <br />
+        <div>
+          <TextField
+            id="outlined-multiline-static"
+            label="Description"
+            multiline
+            rows={4}
+            defaultValue="Your message..."
+          />
+        </div>
       </Box>
+      {/* <h3>Description</h3>
+      <TextareaAutosize /> */}
     </div>
   );
 }
