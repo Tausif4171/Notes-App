@@ -2,17 +2,18 @@ import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 
 export default function Form() {
   return (
-    <div>
+    <Container maxWidth="xs">
       <Box
         sx={{
           //   display: "flex",
           //   alignItems: "center",
           "& > :not(style)": { m: 1 },
         }}
-        style={{ justifyContent: "center" }}
+        // style={{ justifyContent: "center" }}
       >
         <div>
           <TextField
@@ -38,6 +39,6 @@ export default function Form() {
       </Box>
       {/* <h3>Description</h3>
       <TextareaAutosize /> */}
-    </div>
+    </Container>
   );
 }
