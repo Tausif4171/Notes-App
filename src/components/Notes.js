@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-export default function Notes() {
+export default function Notes({ handleClickOpen }) {
   return (
     <Container maxWidth="xs">
       <div style={{}}>
@@ -23,7 +23,14 @@ export default function Notes() {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Edit</Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={handleClickOpen}
+              size="small"
+            >
+              Edit
+            </Button>
             <Button size="small">Delete</Button>
           </CardActions>
         </Card>
