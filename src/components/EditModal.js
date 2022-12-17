@@ -44,6 +44,7 @@ const DialogTitle = withStyles(styles)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
+    borderBottom: "hidden",
   },
 }))(MuiDialogContent);
 
@@ -51,7 +52,6 @@ const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(1),
-    borderTop: "none",
   },
 }))(MuiDialogActions);
 
@@ -93,7 +93,7 @@ export default function EditModal() {
             dui. Donec ullamcorper nulla non metus auctor fringilla.
           </Typography>
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{ justifyContent: "center" }}>
           <Button autoFocus onClick={handleClose} color="primary">
             Save changes
           </Button>
