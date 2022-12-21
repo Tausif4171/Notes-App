@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import Navbar from "./components/Navbar";
@@ -5,12 +6,16 @@ import Notes from "./components/Notes";
 import EditModal from "./components/EditModal";
 
 function App() {
+  const [title, setTitle] = useState("");
+  console.log({ title });
+  const [desc, setDesc] = useState("");
+
   return (
     <div className="App">
-      <EditModal />
       <Navbar />
-      <Form />
-      <Notes />
+      <Form title={title} setTitle={setTitle} desc={desc} setDesc={setDesc} />
+      <Notes title={title} desc={desc} />
+      <EditModal />
     </div>
   );
 }

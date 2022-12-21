@@ -7,19 +7,26 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-export default function Notes({ handleClickOpen }) {
+export default function Notes({ handleClickOpen, title, desc }) {
   return (
     <Container maxWidth="xs">
       <div style={{}}>
         <h2>Your Notes</h2>
         <Card sx={{ maxWidth: 345 }}>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Lizard
+            <Typography variant="h5" component="div">
+              Title
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {title}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Description
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {desc}
             </Typography>
           </CardContent>
           <CardActions>
