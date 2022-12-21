@@ -9,6 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import Notes from "./Notes";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 const styles = (theme) => ({
   root: {
@@ -74,28 +76,35 @@ export default function EditModal() {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
+          Edit Note
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+          <Box
+            sx={{
+              //   display: "flex",
+              //   alignItems: "center",
+              "& > :not(style)": { m: 1 },
+            }}
+            // style={{ justifyContent: "center" }}
+          >
+            <div>
+              <TextField id="editTitle" label="Title" multiline rows={1} />
+            </div>
+
+            <br />
+            <div>
+              <TextField id="editDesc" label="Description" multiline rows={4} />
+            </div>
+          </Box>
         </DialogContent>
         <DialogActions style={{ justifyContent: "center" }}>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
+          <Button
+            autoFocus
+            onClick={handleClose}
+            variant="contained"
+            color="primary"
+          >
+            Edit
           </Button>
         </DialogActions>
       </Dialog>
