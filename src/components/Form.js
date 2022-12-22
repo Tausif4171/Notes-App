@@ -26,7 +26,6 @@ export default function Form({ title, setTitle, desc, setDesc }) {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-
         <br />
         <div>
           <TextField
