@@ -5,7 +5,27 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Notes from "./Notes";
 
-export default function Form({ title, setTitle, desc, setDesc }) {
+export default function Form({
+  title,
+  setTitle,
+  desc,
+  setDesc,
+  notes,
+  setNotes,
+}) {
+  const handleNotes = (e) => {
+    // e.preventDefault();
+    setNotes((notes) => {
+      return [
+        ...notes,
+        {
+          title: title,
+          desc: desc,
+          id: new Date().getTime(),
+        },
+      ];
+    });
+  };
   return (
     <Container maxWidth="xs">
       <Box
@@ -37,10 +57,13 @@ export default function Form({ title, setTitle, desc, setDesc }) {
             onChange={(e) => setDesc(e.target.value)}
           />
         </div>
-        <Button variant="contained">Add</Button>
+        <Button variant="contained" onClick={handleNotes}>
+          Add
+        </Button>
       </Box>
       {/* <h3>Description</h3>
       <TextareaAutosize /> */}
+      {/* <h3>{notes}</h3> */}
       <Notes title={title} />
     </Container>
   );
