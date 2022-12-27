@@ -22,7 +22,7 @@ function App() {
         notes={notes}
         setNotes={setNotes}
       />
-      <Notes title={title} desc={desc} />
+      <Notes title={title} desc={desc} notes={notes} />
       <EditModal />
     </div>
   );
