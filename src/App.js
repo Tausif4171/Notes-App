@@ -9,7 +9,8 @@ function App() {
   const [title, setTitle] = useState("");
   console.log({ title });
   const [desc, setDesc] = useState("");
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState([]);
+  console.log({ notes });
 
   return (
     <div className="App">

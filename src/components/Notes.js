@@ -6,18 +6,21 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-export default function Notes({ handleClickOpen, title, desc, notes }) {
+const Notes = ({ handleClickOpen, title, desc, notes }) => {
+  console.log({ notes });
   return (
     <Container maxWidth="xs">
       <div style={{}}>
         <h2>Your Notes</h2>
+        {/* {notes.map((note) => {
+          return ( */}
         <Card sx={{ maxWidth: 345 }}>
           <CardContent>
             <Typography variant="h5" component="div">
               Title
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {/* {notes.title} */}
+              {/* {note.title} */}
             </Typography>
           </CardContent>
           <CardContent>
@@ -40,7 +43,9 @@ export default function Notes({ handleClickOpen, title, desc, notes }) {
             <Button size="small">Delete</Button>
           </CardActions>
         </Card>
+        {/* ); })} */}
       </div>
     </Container>
   );
-}
+};
+export default Notes;

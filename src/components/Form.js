@@ -13,7 +13,7 @@ export default function Form({
   notes,
   setNotes,
 }) {
-  const handleNotes = (e) => {
+  const handleNotes = () => {
     // e.preventDefault();
     setNotes((notes) => {
       return [
