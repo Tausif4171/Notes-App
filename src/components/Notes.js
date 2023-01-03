@@ -12,7 +12,7 @@ const Notes = ({ handleClickOpen, title, desc, notes }) => {
   return (
     <Container maxWidth="xs">
       <div style={{}}>
-        <h2>Your Notes</h2>
+        {/* <h2>Your Notes</h2> */}
         {notes?.length === 0 ? (
           <Card sx={{ maxWidth: 345 }}>
             <CardContent>
