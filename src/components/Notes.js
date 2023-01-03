@@ -13,41 +13,54 @@ const Notes = ({ handleClickOpen, title, desc, notes }) => {
     <Container maxWidth="xs">
       <div style={{}}>
         <h2>Your Notes</h2>
-        {notes?.map((note) => {
-          return (
-            <>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardContent>
-                  <Typography variant="h5" component="div">
-                    Title
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {note.title}
-                  </Typography>
-                </CardContent>
-                <CardContent>
-                  <Typography variant="h5" component="div">
-                    Description
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {note.desc}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={handleClickOpen}
-                    size="small"
-                  >
-                    Edit
-                  </Button>
-                  <Button size="small">Delete</Button>
-                </CardActions>
-              </Card>
-            </>
-          );
-        })}
+        {notes?.length === 0 ? (
+          <Card sx={{ maxWidth: 345 }}>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                Message
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                No notes are available for reading!
+              </Typography>
+            </CardContent>
+          </Card>
+        ) : (
+          notes?.map((note) => {
+            return (
+              <>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardContent>
+                    <Typography variant="h5" component="div">
+                      Title
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {note.title}
+                    </Typography>
+                  </CardContent>
+                  <CardContent>
+                    <Typography variant="h5" component="div">
+                      Description
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {note.desc}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      onClick={handleClickOpen}
+                      size="small"
+                    >
+                      Edit
+                    </Button>
+                    <Button size="small">Delete</Button>
+                  </CardActions>
+                </Card>
+              </>
+            );
+          })
+        )}
       </div>
     </Container>
   );
