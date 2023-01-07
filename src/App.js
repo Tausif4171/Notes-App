@@ -4,6 +4,9 @@ import Form from "./components/Form";
 import Navbar from "./components/Navbar";
 import Notes from "./components/Notes";
 import EditModal from "./components/EditModal";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
 
 function App() {
   const [title, setTitle] = useState("");
@@ -23,7 +26,23 @@ function App() {
         notes={notes}
         setNotes={setNotes}
       />
-      <Notes title={title} desc={desc} notes={notes} />
+      {notes.length === 0 ? (
+        <Card sx={{ maxWidth: 345 }}>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Message
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              No notes are available for reading!
+            </Typography>
+          </CardContent>
+        </Card>
+      ) : (
+        notes.map((note) => {
+          return <Notes note={note} />;
+        })
+      )}
+
       <EditModal />
     </div>
   );

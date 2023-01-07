@@ -6,61 +6,44 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-const Notes = ({ handleClickOpen, title, desc, notes }) => {
-  const [data, setData] = useState(notes);
-  console.log({ data });
+const Notes = (props) => {
+  // const [data, setData] = useState(notes);
+  console.log(props.note);
   return (
     <Container maxWidth="xs">
       <div style={{}}>
         {/* <h2>Your Notes</h2> */}
-        {notes?.length === 0 ? (
+        <>
           <Card sx={{ maxWidth: 345 }}>
             <CardContent>
               <Typography variant="h5" component="div">
-                Message
+                Title
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                No notes are available for reading!
+                {props.note ? props.note.title : null}
               </Typography>
             </CardContent>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                Description
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {props.note ? props.note.desc : null}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={props.handleClickOpen}
+                size="small"
+              >
+                Edit
+              </Button>
+              <Button size="small">Delete</Button>
+            </CardActions>
           </Card>
-        ) : (
-          notes?.map((note) => {
-            return (
-              <>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardContent>
-                    <Typography variant="h5" component="div">
-                      Title
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {note.title}
-                    </Typography>
-                  </CardContent>
-                  <CardContent>
-                    <Typography variant="h5" component="div">
-                      Description
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {note.desc}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      onClick={handleClickOpen}
-                      size="small"
-                    >
-                      Edit
-                    </Button>
-                    <Button size="small">Delete</Button>
-                  </CardActions>
-                </Card>
-              </>
-            );
-          })
-        )}
+        </>
       </div>
     </Container>
   );
