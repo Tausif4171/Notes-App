@@ -15,16 +15,18 @@ export default function Form({
 }) {
   const handleNotes = () => {
     // e.preventDefault();
-    setNotes((notes) => {
-      return [
-        ...notes,
-        {
-          title: title,
-          desc: desc,
-          id: new Date().getTime(),
-        },
-      ];
-    });
+    if (title !== "" && desc !== "") {
+      setNotes((notes) => {
+        return [
+          ...notes,
+          {
+            title: title,
+            desc: desc,
+            id: new Date().getTime(),
+          },
+        ];
+      });
+    }
     setTitle("");
     setDesc("");
   };
