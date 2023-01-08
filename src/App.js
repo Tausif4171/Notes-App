@@ -12,8 +12,18 @@ function App() {
   const [title, setTitle] = useState("");
   console.log({ title });
   const [desc, setDesc] = useState("");
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(notesFromLocalstorage);
   console.log({ notes });
+  console.log(typeof notes);
+  localStorage.setItem("notes", JSON.stringify(notes));
+  function notesFromLocalstorage() {
+    const note = JSON.parse(localStorage.getItem("notes"));
+    if (note) {
+      return note;
+    } else {
+      return [];
+    }
+  }
 
   return (
     <div className="App">
