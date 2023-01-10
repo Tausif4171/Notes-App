@@ -9,6 +9,16 @@ import Container from "@mui/material/Container";
 const Notes = (props) => {
   // const [data, setData] = useState(notes);
   console.log(props.note);
+  const removeNotes = (id) => {
+    console.log({ id });
+    const newNotes = props.notes.filter((elem) => {
+      if (elem.id !== id) {
+        return elem;
+      }
+    });
+    console.log({ newNotes });
+    props.setNotes(newNotes);
+  };
   return (
     <Container maxWidth="xs">
       <div style={{}}>
@@ -40,7 +50,14 @@ const Notes = (props) => {
               >
                 Edit
               </Button>
-              <Button size="small">Delete</Button>
+              <Button
+                size="small"
+                onClick={() => {
+                  removeNotes(props.note.id);
+                }}
+              >
+                Delete
+              </Button>
             </CardActions>
           </Card>
         </>

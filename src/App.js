@@ -49,7 +49,14 @@ function App() {
         </Card>
       ) : (
         notes.map((note) => {
-          return <Notes note={note} key={note.id} />;
+          return (
+            <Notes
+              note={note}
+              notes={notes}
+              setNotes={setNotes}
+              key={note.id}
+            />
+          );
         })
       )}
 
