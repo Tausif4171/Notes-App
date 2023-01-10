@@ -8,15 +8,15 @@ import Container from "@mui/material/Container";
 
 const Notes = (props) => {
   // const [data, setData] = useState(notes);
-  console.log(props.note);
+  // console.log(props.note);
   const removeNotes = (id) => {
-    console.log({ id });
+    // console.log({ id });
     const newNotes = props.notes.filter((elem) => {
       if (elem.id !== id) {
         return elem;
       }
     });
-    console.log({ newNotes });
+    // console.log({ newNotes });
     props.setNotes(newNotes);
   };
   return (
