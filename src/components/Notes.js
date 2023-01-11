@@ -5,8 +5,11 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import EditModal from "../components/EditModal";
 
 const Notes = (props) => {
+  const [right, setRight] = useState(false);
+  console.log({ right });
   // const [data, setData] = useState(notes);
   // console.log(props.note);
   const removeNotes = (id) => {
@@ -45,7 +48,10 @@ const Notes = (props) => {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={props.handleClickOpen}
+                // onClick={props.handleClickOpen}
+                onClick={() => {
+                  setRight(true);
+                }}
                 size="small"
               >
                 Edit
@@ -62,6 +68,7 @@ const Notes = (props) => {
           </Card>
         </>
       </div>
+      {right ? <EditModal right={right} setRight={setRight} /> : null}
     </Container>
   );
 };

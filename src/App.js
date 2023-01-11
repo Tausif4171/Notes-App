@@ -60,7 +60,7 @@ function App() {
         })
       )}
 
-      <EditModal />
+      {/* <EditModal /> */}
     </div>
   );
 }

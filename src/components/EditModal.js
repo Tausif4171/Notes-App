@@ -57,23 +57,23 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function EditModal() {
-  const [open, setOpen] = React.useState(false);
+export default function EditModal({ right, setRight }) {
+  //   const [open, setOpen] = React.useState(right);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setRight(true);
   };
   const handleClose = () => {
-    setOpen(false);
+    setRight(false);
   };
   return (
     <div>
-      <Notes handleClickOpen={handleClickOpen} />
+      {/* <Notes handleClickOpen={handleClickOpen} /> */}
 
       <Dialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={right}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Edit Note
