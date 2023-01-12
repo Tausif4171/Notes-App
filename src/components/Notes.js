@@ -68,7 +68,9 @@ const Notes = (props) => {
           </Card>
         </>
       </div>
-      {right ? <EditModal right={right} setRight={setRight} /> : null}
+      {right ? (
+        <EditModal right={right} setRight={setRight} notes={props.notes} />
+      ) : null}
     </Container>
   );
 };

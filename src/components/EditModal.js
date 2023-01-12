@@ -57,8 +57,9 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function EditModal({ right, setRight }) {
+export default function EditModal({ right, setRight, notes }) {
   //   const [open, setOpen] = React.useState(right);
+  console.log({ notes });
 
   const handleClickOpen = () => {
     setRight(true);
@@ -88,7 +89,13 @@ export default function EditModal({ right, setRight }) {
             // style={{ justifyContent: "center" }}
           >
             <div>
-              <TextField id="editTitle" label="Title" multiline rows={1} />
+              <TextField
+                id="editTitle"
+                // label="Title"
+                value={notes.title}
+                multiline
+                rows={1}
+              />
             </div>
 
             <br />
