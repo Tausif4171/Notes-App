@@ -61,7 +61,7 @@ export default function Form({
             onChange={(e) => setDesc(e.target.value)}
           />
         </div>
-        <Button variant="contained" onClick={handleNotes}>
+        <Button variant="outlined" color="primary" onClick={handleNotes}>
           Add
         </Button>
       </Box>
