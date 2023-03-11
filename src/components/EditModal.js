@@ -57,7 +57,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function EditModal({ right, setRight, notes, setNewData }) {
+export default function EditModal({ right, setRight, notes, setNewTitle, setDesc }) {
   //   const [open, setOpen] = React.useState(right);
   const title = notes.map((item) => item.title)
   const [newValue, setNewValue] = useState(title)
@@ -73,7 +73,8 @@ export default function EditModal({ right, setRight, notes, setNewData }) {
     setRight(false);
   };
   const handleEdit=()=>{
-    setNewData(newValue)
+    setNewTitle(newValue)
+    setDesc(newDesc)
     setRight(false);
   }
   return (

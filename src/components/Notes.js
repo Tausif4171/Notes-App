@@ -8,8 +8,9 @@ import Container from "@mui/material/Container";
 import EditModal from "../components/EditModal";
 
 const Notes = (props) => {
-  const [newData, setNewData] = useState('')
-  console.log('newDataFromEditModal', newData)
+  const [newTitle, setNewTitle] = useState('')
+  const [newDesc, setNewDesc] = useState('')
+  console.log('newDataFromEditModal', newTitle)
   const [right, setRight] = useState(false);
   console.log({ right });
   // const [data, setData] = useState(notes);
@@ -38,7 +39,7 @@ const Notes = (props) => {
                 Title
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {newData ? newData : props.note.title}
+                {newTitle ? newTitle : props.note.title}
               </Typography>
             </CardContent>
             <CardContent>
@@ -46,7 +47,7 @@ const Notes = (props) => {
                 Description
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {props.note ? props.note.desc : null}
+                {newDesc ? newDesc : props.note.desc}
               </Typography>
             </CardContent>
             <CardActions>
@@ -75,7 +76,7 @@ const Notes = (props) => {
         </>
       </div>
       {right ? (
-        <EditModal right={right} setRight={setRight} notes={props.notes} setNewData={setNewData} />
+        <EditModal right={right} setRight={setRight} notes={props.notes} setNewTitle={setNewTitle} setDesc={setNewDesc}/>
       ) : null}
     </Container>
   );
