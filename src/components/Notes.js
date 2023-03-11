@@ -8,16 +8,16 @@ import Container from "@mui/material/Container";
 import EditModal from "../components/EditModal";
 
 const Notes = (props) => {
-  const [newTitle, setNewTitle] = useState('')
-  const [newDesc, setNewDesc] = useState('')
-  console.log('newDataFromEditModal', newTitle)
+  const [newTitle, setNewTitle] = useState("");
+  const [newDesc, setNewDesc] = useState("");
+  console.log("newDataFromEditModal", newTitle);
   const [right, setRight] = useState(false);
   console.log({ right });
   // const [data, setData] = useState(notes);
   // console.log(props.note);
-  const editNotes =(id)=>{
-    console.log('EditNotes', id)
-  }
+  const editNotes = (id) => {
+    console.log("EditNotes", id);
+  };
   const removeNotes = (id) => {
     // console.log({ id });
     const newNotes = props.notes.filter((elem) => {
@@ -56,7 +56,7 @@ const Notes = (props) => {
                 color="primary"
                 // onClick={props.handleClickOpen}
                 onClick={() => {
-                  editNotes(props.note.id)
+                  editNotes(props.note.id);
                   setRight(true);
                 }}
                 size="small"
@@ -76,7 +76,13 @@ const Notes = (props) => {
         </>
       </div>
       {right ? (
-        <EditModal right={right} setRight={setRight} notes={props.notes} setNewTitle={setNewTitle} setDesc={setNewDesc}/>
+        <EditModal
+          right={right}
+          setRight={setRight}
+          notes={props.notes}
+          setNewTitle={setNewTitle}
+          setDesc={setNewDesc}
+        />
       ) : null}
     </Container>
   );

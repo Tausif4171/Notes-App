@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -57,13 +57,19 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function EditModal({ right, setRight, notes, setNewTitle, setDesc }) {
+export default function EditModal({
+  right,
+  setRight,
+  notes,
+  setNewTitle,
+  setDesc,
+}) {
   //   const [open, setOpen] = React.useState(right);
-  const title = notes.map((item) => item.title)
-  const [newValue, setNewValue] = useState(title)
-  const desc = notes.map((item) => item.desc)
-  const [newDesc, setNewDesc] = useState(desc)
-  console.log('NewData', newValue, newDesc)
+  const title = notes.map((item) => item.title);
+  const [newValue, setNewValue] = useState(title);
+  const desc = notes.map((item) => item.desc);
+  const [newDesc, setNewDesc] = useState(desc);
+  console.log("NewData", newValue, newDesc);
   console.log("EditModal", { notes });
 
   const handleClickOpen = () => {
@@ -72,11 +78,11 @@ export default function EditModal({ right, setRight, notes, setNewTitle, setDesc
   const handleClose = () => {
     setRight(false);
   };
-  const handleEdit=()=>{
-    setNewTitle(newValue)
-    setDesc(newDesc)
+  const handleEdit = () => {
+    setNewTitle(newValue);
+    setDesc(newDesc);
     setRight(false);
-  }
+  };
   return (
     <div>
       {/* <Notes handleClickOpen={handleClickOpen} /> */}
@@ -105,7 +111,7 @@ export default function EditModal({ right, setRight, notes, setNewTitle, setDesc
                     id="editTitle"
                     // label="Title"
                     value={newValue}
-                    onChange={(e)=>setNewValue(e.target.value)}
+                    onChange={(e) => setNewValue(e.target.value)}
                     multiline
                     rows={1}
                   />
@@ -115,7 +121,7 @@ export default function EditModal({ right, setRight, notes, setNewTitle, setDesc
                   <TextField
                     id="editDesc"
                     value={newDesc}
-                    onChange={(e)=>setNewDesc(e.target.value)}
+                    onChange={(e) => setNewDesc(e.target.value)}
                     label="Description"
                     multiline
                     rows={4}
