@@ -57,7 +57,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function EditModal({ right, setRight, notes }) {
+export default function EditModal({ right, setRight, notes, setNewData }) {
   //   const [open, setOpen] = React.useState(right);
   const title = notes.map((item) => item.title)
   const [newValue, setNewValue] = useState(title)
@@ -72,6 +72,10 @@ export default function EditModal({ right, setRight, notes }) {
   const handleClose = () => {
     setRight(false);
   };
+  const handleEdit=()=>{
+    setNewData(newValue)
+    setRight(false);
+  }
   return (
     <div>
       {/* <Notes handleClickOpen={handleClickOpen} /> */}
@@ -123,7 +127,7 @@ export default function EditModal({ right, setRight, notes }) {
         <DialogActions style={{ justifyContent: "center" }}>
           <Button
             autoFocus
-            onClick={handleClose}
+            onClick={handleEdit}
             variant="contained"
             color="primary"
           >
