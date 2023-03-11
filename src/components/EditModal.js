@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -59,7 +59,12 @@ const DialogActions = withStyles((theme) => ({
 
 export default function EditModal({ right, setRight, notes }) {
   //   const [open, setOpen] = React.useState(right);
-  console.log({ notes });
+  const title = notes.map((item) => item.title)
+  const [newValue, setNewValue] = useState(title)
+  const desc = notes.map((item) => item.desc)
+  const [newDesc, setNewDesc] = useState(desc)
+  console.log('NewData', newValue, newDesc)
+  console.log("EditModal", { notes });
 
   const handleClickOpen = () => {
     setRight(true);
@@ -88,20 +93,31 @@ export default function EditModal({ right, setRight, notes }) {
             }}
             // style={{ justifyContent: "center" }}
           >
-            <div>
-              <TextField
-                id="editTitle"
-                // label="Title"
-                value={notes.title}
-                multiline
-                rows={1}
-              />
-            </div>
-
-            <br />
-            <div>
-              <TextField id="editDesc" label="Description" multiline rows={4} />
-            </div>
+            {notes.map((item) => (
+              <>
+                <div>
+                  <TextField
+                    id="editTitle"
+                    // label="Title"
+                    value={newValue}
+                    onChange={(e)=>setNewValue(e.target.value)}
+                    multiline
+                    rows={1}
+                  />
+                </div>
+                <br />
+                <div>
+                  <TextField
+                    id="editDesc"
+                    value={newDesc}
+                    onChange={(e)=>setNewDesc(e.target.value)}
+                    label="Description"
+                    multiline
+                    rows={4}
+                  />
+                </div>
+              </>
+            ))}
           </Box>
         </DialogContent>
         <DialogActions style={{ justifyContent: "center" }}>

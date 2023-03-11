@@ -12,6 +12,9 @@ const Notes = (props) => {
   console.log({ right });
   // const [data, setData] = useState(notes);
   // console.log(props.note);
+  const editNotes =(id)=>{
+    console.log('EditNotes', id)
+  }
   const removeNotes = (id) => {
     // console.log({ id });
     const newNotes = props.notes.filter((elem) => {
@@ -50,6 +53,7 @@ const Notes = (props) => {
                 color="primary"
                 // onClick={props.handleClickOpen}
                 onClick={() => {
+                  editNotes(props.note.id)
                   setRight(true);
                 }}
                 size="small"
